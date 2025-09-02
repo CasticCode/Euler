@@ -1,15 +1,13 @@
-#list prime factors of inputted number
+# largest palindromic product of two three-digit numbers
 
-def findFactor(num):
-    factors = []
-    factor = 2
-    while num >=2:
-        if num % factor == 0:
-            factors.append(factor)
-            num = num // factor
-        else:
-            factor+=1
-    factors = list(set(factors))
-    return factors
+palindromes = []
 
-print(findFactor(int(input("Number to be prime factored"))))
+for i in range(100, 1000):
+    for n in range(100, 1000):
+        result = str(i * n)
+        reverseResult = str(i * n)[::-1]
+        if result == reverseResult:
+            palindromes.append(int(result))
+
+palindromesSorted = sorted(palindromes)
+print(palindromesSorted[-1])
